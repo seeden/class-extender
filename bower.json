@@ -1,14 +1,14 @@
 {
 	"name": "class-extend",
 	"description": "Simple class inheritance",
-	"version": "1.0.2",
+	"version": "1.0.3",
 	"keywords": [
 		"class",
 		"extend",
 		"inheritance",
 		"amd"
 	],
-	"homepage": "http://getbootstrap.com",
+	"homepage": "https://github.com/seeden/class-extend",
 	"main": [
 		"index.js"
 	],
