@@ -32,8 +32,24 @@
 	}
 
 	// Create a new Class that inherits from this class
-	BaseClass.extend = function (props) {
+	BaseClass.extend = function (props, adopt) {
 		var _super = this.prototype;
+		adopt = adopt || [];
+
+		//adopt from existing classes
+		for(var i=0; i<adopt.length; i++) {
+			var source = adopt[i];
+			if(source.prototype) {
+				source = source.prototype;
+			}
+
+			for(var k in source) {
+				if (source.hasOwnProperty(k) && !props[k]) {
+      				props[k] = source[k];
+    			}
+			}
+		}
+
 
 		// Instantiate a base class (but only create the instance,
 		// don't run the init constructor)
