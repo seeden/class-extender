@@ -1,0 +1,18 @@
+{
+	"name": "class-extend",
+	"description": "Simple class inheritance",
+	"version": "1.0.0",
+	"keywords": [
+		"class",
+		"extend",
+		"inheritance",
+		"amd"
+	],
+	"homepage": "http://getbootstrap.com",
+	"main": [
+		"index.js"
+	],
+	"ignore": [
+		".*"
+	]
+}

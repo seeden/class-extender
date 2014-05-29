@@ -1,0 +1,34 @@
+{
+	"name": "class-extend",
+	"version": "1.0.0",
+	"description": "Simple class inheritance",
+	"author": {
+		"name": "Zlatko Fedor",
+		"email": "zfedor@gmail.com",
+		"url": "http://www.cherrysro.com/"
+	},
+	"repository": {
+		"type": "git",
+		"url": "git://github.com/seeden/class-extend.git"
+	},
+	"keywords": [
+		"class",
+		"extend",
+		"inheritance",
+		"amd"
+	],
+	"private": false,
+	"licenses": [
+		{
+			"type": "MIT",
+			"url": "http://www.opensource.org/licenses/MIT"
+		}
+	],
+	"main": "./lib/",
+	"engines": {
+		"node": ">= 0.10.0"
+	},	
+	"bugs": {
+		"url": "https://github.com/seeden/class-extend/issues"
+	}
+}
