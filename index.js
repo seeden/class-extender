@@ -1,67 +1,82 @@
 /**
  * It is based on http://ejohn.org/blog/simple-javascript-inheritance/#postcomment
+ * http://stackoverflow.com/questions/15050816/is-john-resigs-javascript-inheritance-snippet-deprecated
+ * https://gist.github.com/shakyShane/5944153
  */
 
 define(function() {
+	"use strict";
 
-	var initializing = false, 
-		fnTest = /xyz/.test(function(){xyz;}) ? /\b_super\b/ : /.*/;
+	if (!Object.create) {
+		Object.create = (function () {
+			function F() {
+			}
+ 
+			return function (o) {
+				if (arguments.length != 1) {
+					throw new Error("Object.create implementation only accepts one parameter.");
+				}
+				
+				F.prototype = o;
+				return new F();
+			};
+		})();
+	}
+ 
+	var fnTest = /xyz/.test(function () {
+		xyz;
+	}) ? /\b_super\b/ : /.*/;
  
 	// The base Class implementation (does nothing)
-	var Class = function(){};
+	function BaseClass() {
+	}
  
 	// Create a new Class that inherits from this class
-	Class.extend = function(prop) {
+	BaseClass.extend = function (props) {
 		var _super = this.prototype;
-   
+ 
 		// Instantiate a base class (but only create the instance,
 		// don't run the init constructor)
-		initializing = true;
-		var prototype = new this();
-		initializing = false;
-   
+		var proto = Object.create(_super);
+ 
 		// Copy the properties over onto the new prototype
-		for (var name in prop) {
-			// Check if we're overwriting an existing function
-			prototype[name] = typeof prop[name] === "function" && typeof _super[name] === "function" && fnTest.test(prop[name])
-				? (function(name, fn) {
-					return function() {
+		for (var name in props) {
+	  		// Check if we're overwriting an existing function
+	  		proto[name] = typeof props[name] === "function" &&
+				typeof _super[name] === "function" && fnTest.test(props[name]) ?
+				(function (name, fn) {
+		  			return function () {
 						var tmp = this._super;
-		   
+ 
 						// Add a new ._super() method that is the same method
 						// but on the super-class
 						this._super = _super[name];
-		   
+ 
 						// The method only need to be bound temporarily, so we
 						// remove it when we're done executing
-						var ret = fn.apply(this, arguments);        
+						var ret = fn.apply(this, arguments);
 						this._super = tmp;
-		   
+ 
 						return ret;
-					};
-				})(name, prop[name])
-				: prop[name];
+		  			};
+				})(name, props[name]) :
+				props[name];
 		}
-   
-		// The dummy class constructor
-		function BaseClass() {
-			// All construction is actually done in the init method
-			if (!initializing && this.init) {
-				this.init.apply(this, arguments);	
-			}	
-		}
-   
+ 
+		// The new constructor
+		var newClass = typeof proto.init === "function" ?
+			proto.init : // All construction is actually done in the init method
+			function () {};
+ 
 		// Populate our constructed prototype object
-		BaseClass.prototype = prototype;
-   
+		newClass.prototype = proto;
+ 
 		// Enforce the constructor to be what we expect
-		BaseClass.prototype.constructor = BaseClass;
+		proto.constructor = newClass;
  
 		// And make this class extendable
-		BaseClass.extend = arguments.callee;
-   
-		return BaseClass;
+		newClass.extend = BaseClass.extend;
+ 
+		return newClass;
 	};
-
-	return Class;
 });
