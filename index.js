@@ -111,6 +111,6 @@
 
 	//Script tag
 	else {
-		root.BaseClass = BaseClass;
+		root.ClassExtender = BaseClass;
 	}
 } (this));
