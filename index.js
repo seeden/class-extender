@@ -79,4 +79,6 @@ define(function() {
  
 		return newClass;
 	};
+
+	return BaseClass;
 });
