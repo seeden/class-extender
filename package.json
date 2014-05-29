@@ -1,6 +1,6 @@
 {
-	"name": "class-extend",
-	"version": "1.0.3",
+	"name": "class-extender",
+	"version": "1.0.0",
 	"description": "Simple class inheritance",
 	"author": {
 		"name": "Zlatko Fedor",
@@ -9,7 +9,7 @@
 	},
 	"repository": {
 		"type": "git",
-		"url": "git://github.com/seeden/class-extend.git"
+		"url": "git://github.com/seeden/class-extender.git"
 	},
 	"keywords": [
 		"class",
@@ -32,7 +32,7 @@
 		"test": "node node_modules/grunt-cli/bin/grunt test"
 	},	
 	"bugs": {
-		"url": "https://github.com/seeden/class-extend/issues"
+		"url": "https://github.com/seeden/class-extender/issues"
 	},
 	"devDependencies": {
 		"grunt": "~0.4.4",
