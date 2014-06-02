@@ -17,9 +17,11 @@ A couple things to note about this implementation:
 ## Install
 
 NodeJS:
+
 	$ npm install class-extender
 
 Bower:
+
 	$ bower install class-extender
 
 ## Event emitter
