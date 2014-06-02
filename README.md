@@ -5,8 +5,8 @@
 As you know there is a lot of different class extenders. 
 Maybe you ask yourself why another class extender. Answer is simple.
 This is not a new class extender :) It is based on [Simple Javascript inheritance](http://ejohn.org/blog/simple-javascript-inheritance/).
-You can use this library as AMD, CommonJS or root library in your [webpack](http://webpack.github.io/) or [requirejs](http://requirejs.org/) module bundler.
-Works in the browser, in Node, Bower and with Browserify.
+You can use this library as AMD, CommonJS or root library in your [Webpack](http://webpack.github.io/) or [RequireJS](http://requirejs.org/) module bundler.
+Works in the browser, in [NodeJS](http://nodejs.org/), [Bower](http://bower.io/) and with [Browserify](http://browserify.org/).
 
 A couple things to note about this implementation:
  * Creating a constructor had to be simple (in this case simply providing an init method does the trick).
@@ -16,7 +16,11 @@ A couple things to note about this implementation:
 
 ## Install
 
+NodeJS:
 	$ npm install class-extender
+
+Bower:
+	$ bower install class-extender
 
 ## Event emitter
 
