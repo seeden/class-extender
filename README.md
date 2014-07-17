@@ -58,7 +58,7 @@ Use as CommonJS module:
 	person.getDepartment(); // => 'secretary'
 
 	var admin = new Admin();
-	admin.getDepartment(); // => 'IT'
+	admin.getDepartment(); // => 'IT:)'
 
 	admin instanceof Admin; // => true
 	admin instanceof Person; // => true
