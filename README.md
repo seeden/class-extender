@@ -1,5 +1,7 @@
 # Class extender
 
+## This module is deprecated please use ES6 instead this module.
+
 ## Motivation
 
 As you know there is a lot of different class extenders. 
