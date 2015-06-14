@@ -50,6 +50,15 @@
 			}
 		}
 
+		// wrap the superclass constructor if the subclass doesn't have one;
+		// without the wrap, we would later change the "constructor" property
+		// for both the superclass AND the new class and thereby screw up the
+		// inheritance chain
+		if(_super.init && !props.init) {
+			props.init = function() {
+				this._super.apply(this, arguments);
+			};
+		}
 
 		// Instantiate a base class (but only create the instance,
 		// don't run the init constructor)
